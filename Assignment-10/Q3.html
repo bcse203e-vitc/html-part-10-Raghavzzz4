@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Pizza Order Form</title>
+</head>
+<body>
+  <h1>Pizza Order Form</h1>
+  <form id="pizza-form">
+    <fieldset>
+      <legend>Pizza Size</legend>
+      <input type="radio" id="small" name="size" value="Small">
+      <label for="small">Small</label>
+      <input type="radio" id="medium" name="size" value="Medium">
+      <label for="medium">Medium</label>
+      <input type="radio" id="large" name="size" value="Large">
+      <label for="large">Large</label>
+    </fieldset>
+    <fieldset>
+      <legend>Toppings</legend>
+      <input type="checkbox" id="cheese" name="topping" value="Cheese">
+      <label for="cheese">Cheese</label>
+      <input type="checkbox" id="pepperoni" name="topping" value="Pepperoni">
+      <label for="pepperoni">Pepperoni</label>
+      <input type="checkbox" id="mushrooms" name="topping" value="Mushrooms">
+      <label for="mushrooms">Mushrooms</label>
+      <input type="checkbox" id="olives" name="topping" value="Olives">
+      <label for="olives">Olives</label>
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="order-summary"></p>
+  <script>
+    const form = document.getElementById("pizza-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const size = document.querySelector('input[name="size"]:checked').value;
+      const toppings = Array.from(document.querySelectorAll('input[name="topping"]:checked')).map((topping) => topping.value);
+      const orderSummary = `You ordered a ${size} pizza with ${toppings.join(", ")}.`;
+      document.getElementById("order-summary").innerHTML = orderSummary;
+    });
+  </script>
+</body>
+</html>

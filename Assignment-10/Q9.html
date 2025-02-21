@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Drawing App</title>
+  <style>
+    #canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Drawing App</h1>
+  <canvas id="canvas" width="400" height="400"></canvas><br>
+  <button id="clear-button">Clear Canvas</button>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const clearButton = document.getElementById("clear-button");
+    let drawing = false;
+    let lastX, lastY;
+    canvas.addEventListener("mousedown", (e) => {
+      drawing = true;
+      lastX = e.offsetX;
+      lastY = e.offsetY;
+    });
+    canvas.addEventListener("mousemove", (e) => {
+      if (drawing) {
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+      }
+    });
+    canvas.addEventListener("mouseup", () => {
+      drawing = false;
+    });
+    clearButton.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+  </script>
+</body>
+</html>

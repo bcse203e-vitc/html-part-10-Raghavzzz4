@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layered Image Gallery</title>
+  <style>
+    .image {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+    .image1 {
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .image2 {
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-45%, -45%);
+    }
+    .image3 {
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -40%);
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Layered Image Gallery</h1>
+  <div class="image image1" style="background-color: #f00;" onclick="bringToFront(this)">Image 1</div>
+  <div class="image image2" style="background-color: #0f0;" onclick="bringToFront(this)">Image 2</div>
+  <div class="image image3" style="background-color: #00f;" onclick="bringToFront(this)">Image 3</div>
+  <script>
+    function bringToFront(image) {
+      const images = document.querySelectorAll(".image");
+      images.forEach((img) => {
+        img.style.zIndex = 1;
+      });
+      image.style.zIndex = 4;
+    }
+  </script>
+</body>
+</html>

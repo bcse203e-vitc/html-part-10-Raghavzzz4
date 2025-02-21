@@ -1,1 +1,22 @@
-
+<html>
+<head>
+  <title>Number Guessing Game</title>
+</head>
+<body>
+  <h1>Number Guessing Game</h1>
+  <p id="result"></p>
+  <script>
+    let numberToGuess = Math.floor(Math.random() * 50) + 1;
+    let guess;
+    while (true) {
+      guess = prompt("Guess a number between 1 and 50:");
+      if (guess == numberToGuess) {
+        document.getElementById("result").innerHTML = "Congratulations! You guessed the number correctly.";
+        break;
+      } else {
+        alert("Wrong guess! Try again.");
+      }
+    }
+  </script>
+</body>
+</html>

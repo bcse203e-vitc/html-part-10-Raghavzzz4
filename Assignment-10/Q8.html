@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country-State Selection</title>
+</head>
+<body>
+  <h1>Country-State Selection</h1>
+  <select id="country-select">
+    <option value="">Select a country</option>
+    <option value="USA">USA</option>
+    <option value="India">India</option>
+    <option value="UK">UK</option>
+  </select>
+  <select id="state-select">
+    <option value="">Select a state</option>
+  </select>
+  <script>
+    const countrySelect = document.getElementById("country-select");
+    const stateSelect = document.getElementById("state-select");
+    countrySelect.addEventListener("change", () => {
+      const country = countrySelect.value;
+      stateSelect.innerHTML = "";
+      if (country === "USA") {
+        const states = ["California", "Texas", "New York"];
+        states.forEach((state) => {
+          const option = document.createElement("option");
+          option.value = state;
+          option.text = state;
+          stateSelect.appendChild(option);
+        });
+      } else if (country === "India") {
+        const states = ["Maharashtra", "Gujarat", "Karnataka"];
+        states.forEach((state) => {
+          const option = document.createElement("option");
+          option.value = state;
+          option.text = state;
+          stateSelect.appendChild(option);
+        });
+      } else if (country === "UK") {
+        const states = ["England", "Scotland", "Wales"];
+        states.forEach((state) => {
+          const option = document.createElement("option");
+          option.value = state;
+          option.text = state;
+          stateSelect.appendChild(option);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

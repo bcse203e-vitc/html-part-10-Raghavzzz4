@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Multiplication Table Generator</title>
+</head>
+<body>
+  <h1>Multiplication Table Generator</h1>
+  <form id="multiplication-form">
+    <fieldset>
+      <legend>Multiplication Table</legend>
+      <label for="number">Enter a number:</label>
+      <input type="number" id="number" name="number">
+      <button type="submit">Generate</button>
+    </fieldset>
+  </form>
+  <table id="multiplication-table"></table>
+  <script>
+    const form = document.getElementById("multiplication-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const number = document.getElementById("number").value;
+      const table = document.getElementById("multiplication-table");
+      table.innerHTML = "";
+      for (let i = 1; i <= 10; i++) {
+        const row = table.insertRow();
+        const cell1 = row.insertCell();
+        const cell2 = row.insertCell();
+        const cell3 = row.insertCell();
+        cell1.innerHTML = `${number} x ${i}`;
+        cell2.innerHTML = "=";
+        cell3.innerHTML = `${number * i}`;
+      }
+    });
+  </script>
+</body>
+</html>
