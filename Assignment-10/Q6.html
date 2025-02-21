@@ -31,9 +31,15 @@
 </head>
 <body>
   <h1 style="text-align: center;">Layered Image Gallery</h1>
-  <div class="image image1" style="background-color: #f00;" onclick="bringToFront(this)">Image 1</div>
-  <div class="image image2" style="background-color: #0f0;" onclick="bringToFront(this)">Image 2</div>
-  <div class="image image3" style="background-color: #00f;" onclick="bringToFront(this)">Image 3</div>
+  <div class="image image1" style="background-color: #f00;" onclick="bringToFront(this)">
+    <img src="image" alt="image 1">
+  </div>
+  <div class="image image2" style="background-color: #0f0;" onclick="bringToFront(this)">
+    <img src="image" alt="image 2">
+  </div>
+  <div class="image image3" style="background-color: #00f;" onclick="bringToFront(this)">
+    <img src="image" alt="image ">
+  </div>
   <script>
     function bringToFront(image) {
       const images = document.querySelectorAll(".image");
